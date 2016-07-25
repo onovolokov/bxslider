@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Contains bxslider.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function bxslider_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the bxslider module.
+    case 'help.page.bxslider':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Integration BxSlider with Field Formaters.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function bxslider_theme() {
+  return array(
+    'image_bxslider' => array(
+      'variables' => array(
+        'item' => NULL,
+        'item_attributes' => NULL,
+        'url' => NULL,
+        'image_style' => NULL,
+      ),
+      'file' => 'bxslider.field.inc',
+    ),
+    'images_bxslider' => array(
+      'render element' => 'element',
+      'file' => 'bxslider.field.inc',
+    ),
+  );
+}

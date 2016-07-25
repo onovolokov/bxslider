@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a formatted image field.
+ *
+ * Available variables:
+ * - image: A collection of image data.
+ *
+ * @see template_preprocess_image_jssor_formatter()
+ */
+#}
+{% if image is not empty %}
+    <li>{{ image }}</li>
+{% endif %}

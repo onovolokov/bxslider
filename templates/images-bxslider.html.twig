@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ *
+ * Available variables:
+ * - children: The rendered child elements of the container.
+ *
+ * @see template_preprocess_images_bxslider()
+ */
+#}
+<ul class="bxslider" style="display:none">
+    {{ children }}
+</ul>
+{#for bxslider Thumbnail pager - method 1.#}
+{% if method1 is not empty %}
+<div id="{{ pager }}">
+    {% if image_urls is not empty %}
+        {% for key, img_url in image_urls %}
+            <a data-slide-index="{{ key }}" href=""><img src="{{ img_url }}" /></a>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endif %}
